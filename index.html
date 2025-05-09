@@ -324,34 +324,5 @@ position: relative;">
     threshold: 0.5 // Start when 50% of the element is in view
   });
   observer.observe(document.querySelector("#typed2"));
-
-
-
-	// Client-side code to handle form submission
-	const form = document.querySelector('form');
-	form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const formData = {
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value,
-    };
-    try {
-      const response = await fetch('http://localhost:3000/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        alert('Email sent successfully!');
-      } else {
-        const errorMessage = await response.text();
-        alert(`Failed to send email: ${errorMessage}`);
-      }
-    } catch (error) {
-      alert('An error occurred. Please try again.');
-      console.error('Error:', error);
-    }
-	});
 </script>
 </html>
